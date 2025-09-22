@@ -6,76 +6,90 @@
 }
 
 body {
+  background: url("batik.jpg") no-repeat center center fixed;
+  background-size: cover;
   font-family: "Segoe UI", Tahoma, sans-serif;
-  background: #f9fafb;
-  color: #333;
-  padding: 40px 20px;
-  text-align: center;          /* Semua teks di tengah */
-  line-height: 1.6;
+  padding: 30px;  
+  display: flex;
+  justify-content: center;
 }
 
-/* Batasi lebar konten */
-body > * {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+
+/* === Kotak CV seperti kertas A4 === */
+.cv-wrapper {
+  background: #fff;
+  width: 794px;             /* ± lebar A4 pada 96dpi */
+  min-height: 1123px;       /* tinggi A4 */
+  padding: 40px 60px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  border-radius: 6px;
 }
 
-/* === Heading === */
+/* === Header === */
+.cv-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 4px solid #2c3e50;
+}
+
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   color: #2c3e50;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: #34495e;
-  margin: 30px 0 10px;
+  margin: 25px 0 10px;
   border-bottom: 2px solid #ddd;
-  display: inline-block;   /* Supaya border pas di teks */
   padding-bottom: 5px;
 }
 
 h3 {
   font-size: 1.2rem;
   color: #2c3e50;
-  margin: 25px 0 10px;
+  margin: 20px 0 10px;
 }
 
-/* === Paragraf & List === */
-p {
+p, ul {
+  line-height: 1.6;
+  color: #333;
   margin-bottom: 15px;
 }
 
 ul {
-  list-style: none;   /* Hilangkan bullet */
-  padding-left: 0;
-  margin-bottom: 20px;
+  list-style: disc;
+  padding-left: 20px;
 }
 
-ul li {
-  margin: 6px 0;
+/* === Bagian Skills & Hobi berdampingan === */
+.skills-hobbies .columns {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
-/* === Garis pemisah di tengah dengan lebar terbatas === */
-hr {
-  border: 0;
-  height: 1px;
-  width: 60%;        /* Biar tidak full, tetap di tengah */
-  background: #ccc;
-  margin: 25px auto; /* Auto = rata tengah */
+.skills-hobbies .columns > div {
+  flex: 1;
 }
 
-/* === Responsif untuk layar kecil === */
-@media (max-width: 600px) {
-  body {
-    padding: 20px 10px;
+/* Responsif untuk layar kecil */
+@media (max-width: 850px) {
+  .cv-wrapper {
+    width: 95%;
+    min-height: auto;
+    padding: 20px;
   }
-  h1 {
-    font-size: 2rem;
-  }
-  h2 {
-    font-size: 1.5rem;
+  .skills-hobbies .columns {
+    flex-direction: column;
   }
 }
